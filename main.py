@@ -52,6 +52,22 @@ def inorder_walk(node):
     inorder_walk(node.right)
 
 
+def preorder_walk(node):
+    if not node:
+        return
+    print(node.value)
+    preorder_walk(node.left)
+    preorder_walk(node.right)
+
+
+def postorder_walk(node):
+    if not node:
+        return
+    postorder_walk(node.left)
+    postorder_walk(node.right)
+    print(node.value)
+
+
 if __name__ == "__main__":
     tree = BinarySearchTree()
     tree.insert(10)
@@ -64,3 +80,7 @@ if __name__ == "__main__":
     print(tree.root)
     print(tree.find(1))
     inorder_walk(tree.root)
+    print("===")
+    preorder_walk(tree.root)
+    print("===")
+    postorder_walk(tree.root)
