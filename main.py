@@ -44,6 +44,14 @@ class BinarySearchTree:
                 return node
 
 
+def inorder_walk(node):
+    if not node:
+        return
+    inorder_walk(node.left)
+    print(node.value)
+    inorder_walk(node.right)
+
+
 if __name__ == "__main__":
     tree = BinarySearchTree()
     tree.insert(10)
@@ -55,3 +63,4 @@ if __name__ == "__main__":
     tree.insert(7)
     print(tree.root)
     print(tree.find(1))
+    inorder_walk(tree.root)
