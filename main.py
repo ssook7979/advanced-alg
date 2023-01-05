@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -68,6 +71,18 @@ def postorder_walk(node):
     print(node.value)
 
 
+def breadth_first_search(tree):
+    q = deque([])
+    q.appendleft(tree.root)
+    while len(q):
+        node = q.pop()
+        if node.left:
+            q.appendleft(node.left)
+        if node.right:
+            q.appendleft(node.right)
+        print(node.value)
+
+
 if __name__ == "__main__":
     tree = BinarySearchTree()
     tree.insert(10)
@@ -77,10 +92,11 @@ if __name__ == "__main__":
     tree.insert(2)
     tree.insert(10)
     tree.insert(7)
-    print(tree.root)
-    print(tree.find(1))
-    inorder_walk(tree.root)
-    print("===")
-    preorder_walk(tree.root)
-    print("===")
-    postorder_walk(tree.root)
+    # print(tree.root)
+    # print(tree.find(1))
+    # inorder_walk(tree.root)
+    # print("===")
+    # preorder_walk(tree.root)
+    # print("===")
+    # postorder_walk(tree.root)
+    breadth_first_search(tree)
